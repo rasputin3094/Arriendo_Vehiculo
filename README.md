@@ -7,6 +7,7 @@ Car-REnt es un sistema informático desarrollado en Java que permite gestionar e
 ## Características Principales
 
 - **Gestión de Clientes**: Agregar y validar clientes del sistema
+- **Gestión de Vehículos**: Visualizar, agregar, modificar y eliminar vehículos
 - **Arriendo con Cuotas**: Crear arriendos con sistema de pagos fraccionados
 - **Pago de Cuotas**: Procesar pagos individuales de cuotas
 - **Validaciones de Negocio**: Control de disponibilidad de vehículos y vigencia de clientes
@@ -29,7 +30,8 @@ src/
 │   ├── VentanaPrincipal.java         # Ventana principal del sistema
 │   ├── VentanaAgregarCliente.java    # Formulario de clientes
 │   ├── VentanaArriendoConCuotas.java # Gestión de arriendos
-│   └── VentanaPagarCuotas.java       # Procesamiento de pagos
+│   ├── VentanaPagarCuotas.java       # Procesamiento de pagos
+│   └── VentanaGestionVehiculos.java  # Gestión completa de vehículos
 └── controlador/                       # Capa del Controlador
     └── ControladorPrincipal.java     # Controlador central del sistema
 ```
@@ -42,14 +44,22 @@ src/
 - Control de duplicados
 - Estado de vigencia del cliente
 
-### 2. Arriendo con Cuotas
+### 2. Gestión de Vehículos
+- **Visualización**: Tabla completa con todos los vehículos y sus estados
+- **Agregar**: Formulario para ingresar nuevos vehículos al sistema
+- **Modificar**: Edición de marca y cambio de estado de vehículos
+- **Eliminar**: Eliminación segura (no permite eliminar vehículos arrendados)
+- **Estados**: Control de condiciones (Disponible, Arrendado, Mantenimiento)
+- **Validaciones**: Patente única, campos obligatorios, formatos válidos
+
+### 3. Arriendo con Cuotas
 - Selección de cliente y vehículo disponible
 - Cálculo automático del monto total
 - Generación de cuotas con valores equitativos
 - Validación de disponibilidad del vehículo
 - Cambio automático del estado del vehículo a "Arrendado"
 
-### 3. Pago de Cuotas
+### 4. Pago de Cuotas
 - Selección de cliente y sus arriendos activos
 - Visualización de cuotas pendientes y pagadas
 - Procesamiento individual de pagos

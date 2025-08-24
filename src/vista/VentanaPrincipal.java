@@ -17,8 +17,8 @@ public class VentanaPrincipal extends JFrame {
 
     private ControladorPrincipal controlador;
     private JMenuBar menuBar;
-    private JMenu menuArriendo, menuCliente, menuAyuda;
-    private JMenuItem itemArriendoConCuota, itemPagarCuota, itemAgregarCliente, itemAcercaDe;
+    private JMenu menuArriendo, menuCliente, menuVehiculo, menuAyuda;
+    private JMenuItem itemArriendoConCuota, itemPagarCuota, itemAgregarCliente, itemGestionVehiculos, itemAcercaDe;
 
     /**
      * Constructor de la ventana principal
@@ -41,12 +41,14 @@ public class VentanaPrincipal extends JFrame {
         // Crear menús
         menuArriendo = new JMenu("Arriendo");
         menuCliente = new JMenu("Cliente");
+        menuVehiculo = new JMenu("Vehículo");
         menuAyuda = new JMenu("Ayuda");
 
         // Crear items del menú
         itemArriendoConCuota = new JMenuItem("Arriendo con Cuotas");
         itemPagarCuota = new JMenuItem("Pagar Cuota");
         itemAgregarCliente = new JMenuItem("Agregar Cliente");
+        itemGestionVehiculos = new JMenuItem("Gestión de Vehículos");
         itemAcercaDe = new JMenuItem("Acerca de");
 
         // Agregar items a los menús
@@ -55,11 +57,14 @@ public class VentanaPrincipal extends JFrame {
 
         menuCliente.add(itemAgregarCliente);
 
+        menuVehiculo.add(itemGestionVehiculos);
+
         menuAyuda.add(itemAcercaDe);
 
         // Agregar menús a la barra
         menuBar.add(menuArriendo);
         menuBar.add(menuCliente);
+        menuBar.add(menuVehiculo);
         menuBar.add(menuAyuda);
     }
 
@@ -124,6 +129,13 @@ public class VentanaPrincipal extends JFrame {
             }
         });
 
+        itemGestionVehiculos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                abrirVentanaGestionVehiculos();
+            }
+        });
+
         itemAcercaDe.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -171,6 +183,14 @@ public class VentanaPrincipal extends JFrame {
      */
     private void abrirVentanaAgregarCliente() {
         VentanaAgregarCliente ventana = new VentanaAgregarCliente(this, controlador);
+        ventana.setVisible(true);
+    }
+
+    /**
+     * Abre la ventana de gestión de vehículos
+     */
+    private void abrirVentanaGestionVehiculos() {
+        VentanaGestionVehiculos ventana = new VentanaGestionVehiculos(this, controlador);
         ventana.setVisible(true);
     }
 

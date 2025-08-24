@@ -292,6 +292,36 @@ public class ControladorPrincipal implements InterfazClientes, InterfazArriendoC
     }
 
     /**
+     * Actualiza la información de un vehículo
+     *
+     * @param vehiculo Vehículo con la información actualizada
+     * @return true si se actualizó correctamente, false en caso contrario
+     */
+    public boolean updateVehiculo(Vehiculo vehiculo) {
+        if (vehiculo == null) {
+            return false;
+        }
+
+        for (int i = 0; i < vehiculos.size(); i++) {
+            if (vehiculos.get(i).getPatente().equals(vehiculo.getPatente())) {
+                vehiculos.set(i, vehiculo);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Elimina un vehículo del sistema
+     *
+     * @param patente Patente del vehículo a eliminar
+     * @return true si se eliminó correctamente, false en caso contrario
+     */
+    public boolean deleteVehiculo(String patente) {
+        return vehiculos.removeIf(vehiculo -> vehiculo.getPatente().equals(patente));
+    }
+
+    /**
      * Genera el próximo número de arriendo disponible
      *
      * @return Número de arriendo disponible

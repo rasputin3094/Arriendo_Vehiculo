@@ -92,15 +92,21 @@ public class VentanaArriendoConCuotas extends JDialog {
         setLayout(new BorderLayout());
 
         // Panel principal
+        setLayout(new BorderLayout(10, 10));
+
+        // Panel superior con título
+        JPanel panelTitulo = new JPanel();
+        panelTitulo.setBackground(new Color(25, 25, 112));
+        JLabel lblTitulo = new JLabel("ARRIENDOS CON CUOTAS", JLabel.CENTER);
+        lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
+        lblTitulo.setForeground(Color.WHITE);
+        lblTitulo.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
+        panelTitulo.add(lblTitulo);
+        add(panelTitulo, BorderLayout.NORTH);
+
         JPanel panelPrincipal = new JPanel(new BorderLayout());
         panelPrincipal.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         panelPrincipal.setBackground(Color.WHITE);
-
-        // Título
-        JLabel lblTitulo = new JLabel("ARRIENDOS CON CUOTAS");
-        lblTitulo.setFont(new Font("Arial", Font.BOLD, 16));
-        lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
-        panelPrincipal.add(lblTitulo, BorderLayout.NORTH);
 
         // Panel de contenido principal
         JPanel panelContenido = new JPanel(new BorderLayout());
