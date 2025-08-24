@@ -190,11 +190,8 @@ public class VentanaPrincipal extends JFrame {
      * Abre la ventana de gestión de vehículos
      */
     private void abrirVentanaGestionVehiculos() {
-        // Funcionalidad temporalmente deshabilitada - Pendiente de implementación
-        JOptionPane.showMessageDialog(this, 
-            "Gestión de vehículos en desarrollo.\nUse las funciones de arriendo mientras tanto.", 
-            "Función en desarrollo", 
-            JOptionPane.INFORMATION_MESSAGE);
+        VentanaGestionVehiculos ventana = new VentanaGestionVehiculos(this, controlador);
+        ventana.setVisible(true);
     }
 
     /**
